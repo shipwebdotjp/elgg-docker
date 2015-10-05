@@ -30,6 +30,8 @@ $params = array(
 	'path' => getenv('ELGG_PATH')
 );
 
-$installer->batchInstall($params, true);
+
+
+$installer->batchInstall($params, false);
 
 exit(0);

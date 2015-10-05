@@ -1,11 +1,14 @@
 web:
-	build: .
-	port: 
-		- "8000:80"
-	links: 
-		- mysql
+  build: .
+  ports:
+    - "8000:80"
+  links:
+    - mysql
+  volumes:
+    - ~/www/Elgg/:/var/www/html/
+    - .:/var/www/html/elgg-docker/
 mysql:
-	image: mysql:5.7
-	environment:
-		MYSQL_ROOT_PASSWORD: 123123
-		MYSQL_DATABASE: elgg
+  image: mysql:5.7  
+  environment:
+    MYSQL_DATABASE: elgg
+    MYSQL_ROOT_PASSWORD: 123123
