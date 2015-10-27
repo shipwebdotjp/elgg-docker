@@ -53,4 +53,4 @@ ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 
 COPY . /elgg-docker/
-RUN chmod +x /elgg-docker/docker-entrypoint.sh
+RUN chmod +x /elgg-docker/elgg-install.sh
