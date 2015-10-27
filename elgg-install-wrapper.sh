@@ -1,7 +1,7 @@
 #!/bin/sh
 # Wait for database to get available
 
-MYSQL_LOOPS="100"
+MYSQL_LOOPS="20"
 MYSQL_HOST="$ELGG_DB_HOST"
 
 
@@ -17,4 +17,4 @@ while ! netcat $MYSQL_HOST $MYSQL_PORT >/dev/null 2>&1 < /dev/null; do
   sleep 1
 done
 
-php	/docker-install.php
+php	/elgg-docker/elgg-install.php
