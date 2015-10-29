@@ -24,7 +24,7 @@ RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 # set defaults or env vars for Elgg and MySQL
 # MySQL
 ENV MYSQL_USER=${MYSQL_USER:-"root"}
-ENV MYSQL_PASS=${MYSQL_PASS:-"123123"}
+ENV MYSQL_PASS=${MYSQL_PASS:-"root-pass"}
 
 # required for installation
 ENV ELGG_DB_HOST=${ELGG_DB_HOST:-"mysql"}
@@ -37,14 +37,11 @@ ENV ELGG_SITE_NAME=${ELGG_SITE_NAME:-"Elgg Site"}
 ENV ELGG_DATA_ROOT=${ELGG_DATA_ROOT:-"/media/elgg/"}
 ENV ELGG_WWW_ROOT=${ELGG_WWW_ROOT:-"http://localhost:8000"}
 
-# Elgg requires a FQDN for the email address.
-#ENV ELGG_SITE_EMAIL=${ELGG_SITE_EMAIL:-"no-reply@myelgg.org"}
-
 # admin user setup
 ENV ELGG_DISPLAY_NAME=${ELGG_DISPLAY_NAME:-"Admin"}
 ENV ELGG_EMAIL=${ELGG_EMAIL:-"admin@myelgg.org"}
 ENV ELGG_USERNAME=${ELGG_USERNAME:-"admin"}
-ENV ELGG_PASSWORD=${ELGG_PASSWORD:-"123123"}
+ENV ELGG_PASSWORD=${ELGG_PASSWORD:-"admin-pass"}
 
 # optional for installation
 ENV ELGG_DB_PREFIX=${ELGG_DB_PREFIX:-"elgg_"}

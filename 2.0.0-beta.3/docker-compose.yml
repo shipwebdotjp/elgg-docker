@@ -6,9 +6,13 @@ web:
     - mysql
   volumes:
     - ~/www/Elgg/:/var/www/html/
-    - ~/www/elgg-docker/:/elgg-docker/
+  environment:
+    MYSQL_USER: root
+    MYSQL_PASS: root-pass
+    ELGG_USERNAME: admin
+    ELGG_PASSWORD: admin-pass
 mysql:
   image: mysql:5.6  
   environment:
     MYSQL_DATABASE: elgg
-    MYSQL_ROOT_PASSWORD: 123123
+    MYSQL_ROOT_PASSWORD: root-pass
