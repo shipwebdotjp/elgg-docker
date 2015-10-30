@@ -75,7 +75,7 @@ mysql:
 ```
 
 ```console
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 3.. Install the Elgg:
