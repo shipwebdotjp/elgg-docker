@@ -1,5 +1,8 @@
-# Elgg-docker
-Note: This documentation is not yet finalized
+# Supported tags and respective `Dockerfile` links
+
+  -	[`2.0.0-beta.3` (*2.0.0-beta.3/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/2.0.0-beta.3/Dockerfile)
+  
+  Note: I'm working to add tags: 1.12.4, 1.x-dev, 2.x-dev
 
 # What is ![logo](https://elgg.org/images/elgg_small.png) ?
 
@@ -86,7 +89,7 @@ Visit your Elgg site: <http://localhost:8000/>
 
 When you start the elgg-docker image, you can adjust the configuration of the elgg instance by passing one or 
 more environment variables.
-The default values are in Dockerfile file.
+The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/master/2.0.0-beta.3/Dockerfile)
 
 * `MYSQL_USER` The DB username to create
 * `MYSQL_PASS` The DB password to set on the created user
