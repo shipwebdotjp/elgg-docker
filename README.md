@@ -102,7 +102,6 @@ web:
     MYSQL_PASS: elgg-pass
     ELGG_DISPLAY_NAME: my-name
     ELGG_DB_PREFIX: my-elgg
-    
 ```
 
 * `MYSQL_USER` The DB username to create
