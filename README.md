@@ -77,7 +77,7 @@ $ docker-compose up
 
 3.. Install the Elgg:
 ```console
-$ docker exec elggdocker_web_1 /elgg-docker/elgg-install.sh
+$ docker exec elgg_web_1 /elgg-docker/elgg-install.sh
 ```
 
 Visit your Elgg site: <http://localhost:8000/>
