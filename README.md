@@ -1,9 +1,7 @@
 # Elgg-docker
 Note: This documentation is not yet finalized
 
-# What is Elgg?
-
-![logo](https://elgg.org/images/elgg_small.png)
+# What is ![logo](https://elgg.org/images/elgg_small.png) ?
 
 Elgg is an award-winning social networking engine, delivering the building blocks that enable businesses, schools, universities 
 and associations to create their own fully-featured social networks and applications.
@@ -12,7 +10,12 @@ For more information and related for Elgg, please visit www.elgg.org.
 
 # How to use this image
 
-1.. Get Elgg:
+Before you start you need to have installed:
+- composer: https://getcomposer.org/download/
+- docker: http://docs.docker.com/linux/step_one/ or https://docs.docker.com/installation/ubuntulinux/
+- docker-compose: https://docs.docker.com/compose/install/
+
+1.. Get the Elgg:
 
 ```console
 $ mkdir Elgg && cd Elgg
@@ -49,13 +52,13 @@ $ composer install
 
 ```yml
 web:
-  build: keviocastro/elgg-docker:2.0.0-beta.3
+  image: keviocastro/elgg-docker:2.0.0-beta.3
   ports:
     - "8000:80"
   links:
     - mysql
   volumes:
-    - ~/path/to/Elgg/:/var/www/html/
+    - .:/var/www/html/
   environment:
     MYSQL_USER: root
     MYSQL_PASS: root-pass
@@ -69,19 +72,21 @@ mysql:
 ```
 
 ```console
-$ docker-composer up
+$ docker-compose up
 ```
 
 3.. Install the Elgg:
 ```console
 $ docker exec elggdocker_web_1 /elgg-docker/elgg-install.sh
 ```
-Visit your Elgg site: http://localhost:8000
+
+Visit your Elgg site: <http://localhost:8000/>
 
 ## Environment Variables
 
 When you start the elgg-docker image, you can adjust the configuration of the elgg instance by passing one or 
 more environment variables.
+The default values are in Dockerfile file.
 
 * `MYSQL_USER` The DB username to create
 * `MYSQL_PASS` The DB password to set on the created user
