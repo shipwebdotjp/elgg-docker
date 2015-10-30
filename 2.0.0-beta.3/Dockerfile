@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng12-dev \
-        netcat
+        netcat \
+        mysql-client
 
 # Elgg requirements
 RUN docker-php-ext-install pdo pdo_mysql mysql
@@ -25,10 +26,10 @@ RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 # MySQL
 ENV MYSQL_USER=${MYSQL_USER:-"root"}
 ENV MYSQL_PASS=${MYSQL_PASS:-"root-pass"}
+ENV MYSQL_PORT=${MYSQL_PORT:-"3306"}
 
 # required for installation
 ENV ELGG_DB_HOST=${ELGG_DB_HOST:-"mysql"}
-ENV MYSQL_PORT=${MYSQL_PORT:-"3306"}
 ENV ELGG_DB_USER=$MYSQL_USER
 ENV ELGG_DB_PASS=$MYSQL_PASS
 ENV ELGG_DB_NAME=${ELGG_DB_NAME:-"elgg"}
