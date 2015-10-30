@@ -92,6 +92,17 @@ more environment variables.
 The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/master/2.0.0-beta.3/Dockerfile)
 
 > You can modify the parameters by passing one or more environment variables in file docker-compose.yml
+> Example: 
+```yml
+web:
+  image: keviocastro/elgg-docker:2.0.0-beta.3
+  environment:
+    MYSQL_USER: elgg
+    MYSQL_PASS: elgg-pass
+    ELGG_DISPLAY_NAME: my-name
+    ELGG_DB_PREFIX: my-elgg
+    
+```
 
 * `MYSQL_USER` The DB username to create
 * `MYSQL_PASS` The DB password to set on the created user
