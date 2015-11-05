@@ -4,12 +4,13 @@
   
   Note: I'm working to add tags: 1.12.4, 1.x-dev, 2.x-dev
 
-# What is ![logo](https://elgg.org/images/elgg_small.png) ?
+# What is Elgg ?
 
 Elgg is an award-winning social networking engine, delivering the building blocks that enable businesses, schools, universities 
 and associations to create their own fully-featured social networks and applications.
 
 For more information and related for Elgg, please visit www.elgg.org.
+![logo](https://elgg.org/images/elgg_small.png)
 
 # How to use this image
 
