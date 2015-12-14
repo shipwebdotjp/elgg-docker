@@ -47,9 +47,9 @@ $ mkdir Elgg && cd Elgg
 ```
 
 ```console
-$ composer self-update
-$ composer global require "fxp/composer-asset-plugin:~1.0"
-$ composer install
+$ composer.phar self-update
+$ composer.phar global require "fxp/composer-asset-plugin:~1.0"
+$ composer.phar install
 ```
 
 2.. Create file docker-compose.yml for running multi-container applications with docker-compose:
