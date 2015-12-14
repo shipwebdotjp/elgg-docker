@@ -48,7 +48,7 @@ $ mkdir Elgg && cd Elgg
 
 ```console
 $ composer.phar self-update
-$ composer.phar global require "fxp/composer-asset-plugin:~1.0"
+$ composer.phar global require "fxp/composer-asset-plugin:~1.0.3"
 $ composer.phar install
 ```
 
