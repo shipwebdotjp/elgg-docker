@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
-  -	[`2.0.0-beta.3` (*2.0.0-beta.3/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/2.0.0-beta.3/Dockerfile)
+  -	[`2.0` (*2.0/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/2.0/Dockerfile)
   
   Note: I'm working to add tags: 1.12.4, 1.x-dev, 2.x-dev
 
@@ -31,7 +31,7 @@ $ mkdir Elgg && cd Elgg
     "name": "your-account/elgg",
     "type": "project",
     "require": {
-        "elgg/elgg": "2.0.0-beta.3"
+        "elgg/elgg": "2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.7"
@@ -52,11 +52,11 @@ $ composer global require "fxp/composer-asset-plugin:~1.0"
 $ composer install
 ```
 
-2.. Create file docker-compose.yml for running multi-container applications with docker-compose:
+2.. Create file docker-compose.yml at your project directory, for running multi-container applications with docker-compose:
 
 ```yml
 web:
-  image: keviocastro/elgg-docker:2.0.0-beta.3
+  image: keviocastro/elgg-docker:2.0
   ports:
     - "8000:80"
   links:
@@ -90,14 +90,14 @@ Visit your Elgg site: <http://localhost:8000/>
 
 When you start the elgg-docker image, you can adjust the configuration of the elgg instance by passing one or 
 more environment variables.
-The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/master/2.0.0-beta.3/Dockerfile)
+The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/master/2.0/Dockerfile)
 
 > You can modify the parameters by passing one or more environment variables in file docker-compose.yml
 
 > Example: 
 ```yml
 web:
-  image: keviocastro/elgg-docker:2.0.0-beta.3
+  image: keviocastro/elgg-docker:2.0
   environment:
     MYSQL_USER: elgg
     MYSQL_PASS: elgg-pass
