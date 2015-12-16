@@ -57,7 +57,7 @@ $ composer.phar install
 web:
   image: keviocastro/elgg-docker:2.0
   ports:
-    - "8000:80" #If you change the port, you must also change the environment variable ELGG WWW_ROOT
+    - "8000:80" #If you change the port, you must also change the environment variable ELGG_WWW_ROOT
   links:
     - mysql
   volumes:
