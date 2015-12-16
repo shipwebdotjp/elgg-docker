@@ -1,4 +1,5 @@
 FROM php:5.6-apache
+COPY . /elgg-docker/
 COPY docker_config/php.ini /usr/local/etc/php/
 
 RUN apt-get update && apt-get install -y \
@@ -21,6 +22,8 @@ RUN a2enmod rewrite
 #Set time zone in server
 ENV TIMEZONE="America/Sao_Paulo"
 RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+#Set time zone in PHP
+RUN sed -i "s#{{timezone}}#$TIMEZONE#g" /usr/local/etc/php/php.ini
 
 # set defaults or env vars for Elgg and MySQL
 # MySQL
@@ -50,5 +53,4 @@ ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
 # 2 is ACCESS_PUBLIC
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 
-COPY . /elgg-docker/
 RUN chmod +x /elgg-docker/elgg-install.sh

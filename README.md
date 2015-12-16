@@ -103,8 +103,10 @@ web:
     MYSQL_PASS: elgg-pass
     ELGG_DISPLAY_NAME: my-name
     ELGG_DB_PREFIX: my-elgg
+    TIMEZONE: America/Sao_Paulo
 ```
 
+* `TIMEZONE` The timezone of the server and php 
 * `MYSQL_USER` The DB username to create
 * `MYSQL_PASS` The DB password to set on the created user
 * `ELGG_DB_HOST` The DB host Elgg will use
