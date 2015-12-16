@@ -64,4 +64,10 @@ foreach ($mods as $key => $folder) {
 	}
 }
 
+echo "Installation is complete.\n";
+echo "Open in your browser: {$params['wwwroot']}\n";
+echo "Elgg access credentials:\n";
+echo "Elgg admin username: {$params['username']}\n";
+echo "Elgg admin pass: {$params['password']}\n";
+
 exit(0);
