@@ -1,8 +1,7 @@
 # Supported tags and respective `Dockerfile` links
 
   -	[`2.0` (*2.0/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile)
-  
-  Note: I'm working to add tags: 1.12.4, 1.x-dev, 2.x-dev
+
 
 # What is Elgg ?
 
@@ -58,7 +57,7 @@ $ composer.phar install
 web:
   image: keviocastro/elgg-docker:2.0
   ports:
-    - "8000:80"
+    - "8000:80" #If you change the port, you must also change the environment variable ELGG WWW_ROOT
   links:
     - mysql
   volumes:
@@ -68,12 +67,16 @@ web:
     MYSQL_PASS: root-pass
     ELGG_USERNAME: admin
     ELGG_PASSWORD: admin-pass
+    ELGG_WWW_ROOT: http://localhost:8000
 mysql:
   image: mysql:5.6  
   environment:
     MYSQL_DATABASE: elgg
     MYSQL_ROOT_PASSWORD: root-pass
 ```
+
+.. note:: This is a reStructuredText directive - the Markdown
+   output should be just periods
 
 ```console
 $ docker-compose up -d
