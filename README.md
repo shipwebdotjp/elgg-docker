@@ -93,7 +93,7 @@ Visit your Elgg site: <http://localhost:8000/>
 
 When you start the elgg-docker image, you can adjust the configuration of the elgg instance by passing one or 
 more environment variables.
-The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/master/2.0/Dockerfile)
+The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile)
 
 > You can modify the parameters by passing one or more environment variables in file docker-compose.yml
 
