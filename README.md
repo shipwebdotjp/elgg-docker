@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
-  -	[`2.0` (*2.0/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/2.0/Dockerfile)
+  -	[`2.0` (*2.0/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile)
   
   Note: I'm working to add tags: 1.12.4, 1.x-dev, 2.x-dev
 
