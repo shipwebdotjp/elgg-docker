@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/kevio/WebProjects/resap2"
 		}
 	]
 }

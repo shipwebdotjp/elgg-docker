@@ -2,11 +2,8 @@
 /**
  * Docker CLI Elgg installer script 
  */
-$autoload_path = '/var/www/html/vendor/autoload.php';
-$autoload_available = include_once($autoload_path);
-if (!$autoload_available) {
-	die("Couldn't include '$autoload_path'. Did you run `composer install`?");
-}
+require_once getenv('ELGG_PATH')."vendor/autoload.php";
+$installer = new ElggInstaller();
 
 $params = array(
 	// database parameters
@@ -33,36 +30,7 @@ if (strlen($params['password']) < 6) {
     exit(1);
 }
 
-$createHtaccess = (file_exists($params['path'].'.htaccess')) ? false : true;
-
-$installer = new ElggInstaller();
-$installer->batchInstall($params, $createHtaccess);
-
-/**
- * Elgg create symbolic links on instalation with composer 
- * See "post-install-cmd": "\\Elgg\\Composer\\PostInstall::execute", for details.
- * Links are created on your local machine.
- * The links need to be changed to the container directories
- */
-$path_mod_root = getenv('ELGG_PATH').'mod/';
-$mods = scandir($path_mod_root);
-
-foreach ($mods as $key => $folder) {
-	if (is_link($path_mod_root.$folder)) {
-		unlink($path_mod_root.$folder);
-	}
-}
-
-$path_mod_vendor = getenv('ELGG_PATH').'vendor/elgg/elgg/mod/';
-$mods = scandir($path_mod_vendor);
-
-foreach ($mods as $key => $folder) {
-	if (is_dir($path_mod_vendor.$folder) && 
-		!is_link($path_mod_root.$folder) &&
-		!is_dir($path_mod_root.$folder)) {
-		symlink($path_mod_vendor.$folder, $path_mod_root.$folder);	
-	}
-}
+$installer->batchInstall($params, true);
 
 echo "Installation is complete.\n";
 echo "Open in your browser: {$params['wwwroot']}\n";
