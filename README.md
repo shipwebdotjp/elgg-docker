@@ -1,5 +1,3 @@
-> Text automatically translated with google translator
-
 # Supported tags and respective `Dockerfile` links
 
   -	[`2.0` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile), [`lastest` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/Dockerfile)
