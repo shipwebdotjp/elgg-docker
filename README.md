@@ -1,6 +1,7 @@
 # Supported tags and respective `Dockerfile` links
 
-  -	[`2.0` (*2.0/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile)
+  -	[`2.0` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile), [`lastest` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/Dockerfile)
+  -	[`1.9` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/1.9/Dockerfile)
 
 
 # What is Elgg ?
@@ -46,7 +47,6 @@ $ mkdir Elgg && cd Elgg
 ```
 
 ```console
-$ composer.phar self-update
 $ composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
 $ composer.phar install
 ```
