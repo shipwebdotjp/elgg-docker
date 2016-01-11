@@ -54,3 +54,6 @@ ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 
 RUN chmod +x /elgg-docker/elgg-install.sh
+RUN mkdir $ELGG_DATA_ROOT
+RUN chown -R www-data:www-data $ELGG_DATA_ROOT
+RUN chmod 770 -R $ELGG_DATA_ROOT
