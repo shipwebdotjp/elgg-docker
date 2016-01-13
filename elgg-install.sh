@@ -35,5 +35,3 @@ if [ -f "${ELGG_PATH}${MYSQL_DATABASE_INITIAL_DATA}"  ]; then
   echo "MYSQL_DATABASE_INITIAL_DATA: restore dump ${ELGG_PATH}${MYSQL_DATABASE_INITIAL_DATA} at dbname ${ELGG_DB_NAME}."
   mysql -u$MYSQL_USER -p$MYSQL_PASS -h$ELGG_DB_HOST $ELGG_DB_NAME < $ELGG_PATH$MYSQL_DATABASE_INITIAL_DATA
 fi
-
-/elgg-docker/environment-setup.sh

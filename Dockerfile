@@ -53,7 +53,7 @@ ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
 # 2 is ACCESS_PUBLIC
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 
-# If true, enable xdebug
+# If true, enable xdebug and vim
 ENV DEBUG=${DEBUG:-"false"}
 
 # If true, should be informed of the file name that contains the dump to be restored in the database.
@@ -65,3 +65,5 @@ RUN chmod +x /elgg-docker/environment-setup.sh
 RUN mkdir $ELGG_DATA_ROOT
 RUN chown -R www-data:www-data $ELGG_DATA_ROOT
 RUN chmod 770 -R $ELGG_DATA_ROOT
+
+RUN /elgg-docker/environment-setup.sh

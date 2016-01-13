@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DEBUG="true"
+DEBUG="$DEBUG"
 
 if [ "$DEBUG" = true ]; then
   echo "DEBUG TRUE: install xdebug."
@@ -13,4 +13,6 @@ if [ "$DEBUG" = true ]; then
   && echo "xdebug.remote_handler=dbgp"   >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "xdebug.remote_port=9000"      >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+  apt-get install -y vim
 fi
