@@ -20,14 +20,20 @@ while ! netcat $ELGG_DB_HOST $MYSQL_PORT >/dev/null 2>&1 < /dev/null; do
   sleep 1
 done
 
-# echo "The MySQL server is ready."
-# echo "Starting installation elgg."
+echo "The MySQL server is ready."
+echo "Starting installation elgg."
 
 # Remove existing configuration files 
 rm -rf engine/settings.php
 rm -rf .htaccess
 
-# Dop existing tables
+# Drop existing tables
 mysql -u$MYSQL_USER -p$MYSQL_PASS -h$ELGG_DB_HOST --silent --skip-column-names -e "SHOW TABLES" $ELGG_DB_NAME | xargs -L1 -I% echo 'DROP TABLE `%`;' | mysql -u$MYSQL_USER -p$MYSQL_PASS -h$ELGG_DB_HOST -v $ELGG_DB_NAME
+php /elgg-docker/elgg-install.php
 
-php	/elgg-docker/elgg-install.php
+if [ -f "${ELGG_PATH}${MYSQL_DATABASE_INITIAL_DATA}"  ]; then
+  echo "MYSQL_DATABASE_INITIAL_DATA: restore dump ${ELGG_PATH}${MYSQL_DATABASE_INITIAL_DATA} at dbname ${ELGG_DB_NAME}."
+  mysql -u$MYSQL_USER -p$MYSQL_PASS -h$ELGG_DB_HOST $ELGG_DB_NAME < $ELGG_PATH$MYSQL_DATABASE_INITIAL_DATA
+fi
+
+/elgg-docker/environment-setup.sh

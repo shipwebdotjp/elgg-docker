@@ -53,4 +53,12 @@ ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
 # 2 is ACCESS_PUBLIC
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 
+# If true, enable xdebug
+ENV DEBUG=${DEBUG:-"false"}
+
+# If true, should be informed of the file name that contains the dump to be restored in the database.
+# The file name must be the address for the directory /var/www/html/. Example: /var/www/html/deploy/dump-initial-data.sql
+ENV MYSQL_DATABASE_INITIAL_DATA=${MYSQL_DATABASE_INITIAL_DATA:-"false"}
+
 RUN chmod +x /elgg-docker/elgg-install.sh
+RUN chmod +x /elgg-docker/environment-setup.sh
