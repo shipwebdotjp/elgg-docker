@@ -1,6 +1,7 @@
 # Supported tags and respective `Dockerfile` links
 
-  -	[`2.0` (*2.0/Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile)
+  -	[`2.0` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile), [`lastest` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/Dockerfile)
+  -	[`1.12` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/1.12/Dockerfile)
 
 
 # What is Elgg ?
@@ -18,44 +19,23 @@ Before you start you need to have installed:
 - docker: http://docs.docker.com/linux/step_one/ or https://docs.docker.com/installation/ubuntulinux/
 - docker-compose: https://docs.docker.com/compose/install/
 
-1.. Get the Elgg:
+1. Get the elgg and install its dependencies:
 
 ```console
-$ mkdir Elgg && cd Elgg
-```
-
-  Create file composer.json
-```json
-{
-    "name": "your-account/elgg",
-    "type": "project",
-    "require": {
-        "elgg/elgg": "2.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^4.7"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-install-cmd": "\\Elgg\\Composer\\PostInstall::execute",
-        "post-update-cmd": "\\Elgg\\Composer\\PostUpdate::execute",
-        "test": "phpunit"
-  }
-}
+$ git clone -b 1.12 https://github.com/Elgg/Elgg.git
+$ cd Elgg
 ```
 
 ```console
-$ composer.phar self-update
-$ composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
-$ composer.phar install
+$ composer global require "fxp/composer-asset-plugin:~1.1.1"
+$ composer install
 ```
 
-2.. Create file docker-compose.yml at your project directory, for running multi-container applications with docker-compose:
+2. Create file docker-compose.yml at your project directory, for running multi-container applications with docker-compose:
 
 ```yml
 web:
-  image: keviocastro/elgg-docker:2.0
+  image: keviocastro/elgg-docker:1.12
   ports:
     - "8000:80" #If you change the port, you must also change the environment variable ELGG_WWW_ROOT
   links:
@@ -75,17 +55,15 @@ mysql:
     MYSQL_ROOT_PASSWORD: root-pass
 ```
 
-.. note:: This is a reStructuredText directive - the Markdown
-   output should be just periods
-
 ```console
 $ docker-compose up -d
 ```
 
-3.. Install the Elgg:
+3. Install the Elgg:
 ```console
 $ docker exec elgg_web_1 /elgg-docker/elgg-install.sh
 ```
+* elgg_web_1 is the container name that was assigned to your web server container. This name may be different, if you created a folder with a different name "Elgg". To see the names of the containers running, run: ``` docker-compose ps ``` or ``` docker ps ``` 
 
 Visit your Elgg site: <http://localhost:8000/>
 
@@ -93,14 +71,14 @@ Visit your Elgg site: <http://localhost:8000/>
 
 When you start the elgg-docker image, you can adjust the configuration of the elgg instance by passing one or 
 more environment variables.
-The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile)
+The default values are in Dockerfile file: [`Dockerfile`](https://github.com/keviocastro/elgg-docker/blob/1.12/Dockerfile)
 
 > You can modify the parameters by passing one or more environment variables in file docker-compose.yml
 
 > Example: 
 ```yml
 web:
-  image: keviocastro/elgg-docker:2.0
+  image: keviocastro/elgg-docker:1.12
   environment:
     MYSQL_USER: elgg
     MYSQL_PASS: elgg-pass

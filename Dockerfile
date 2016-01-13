@@ -53,6 +53,7 @@ ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
 # 2 is ACCESS_PUBLIC
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 
+<<<<<<< HEAD
 # If true, enable xdebug
 ENV DEBUG=${DEBUG:-"false"}
 
@@ -62,3 +63,9 @@ ENV MYSQL_DATABASE_INITIAL_DATA=${MYSQL_DATABASE_INITIAL_DATA:-"false"}
 
 RUN chmod +x /elgg-docker/elgg-install.sh
 RUN chmod +x /elgg-docker/environment-setup.sh
+=======
+RUN chmod +x /elgg-docker/elgg-install.sh
+RUN mkdir $ELGG_DATA_ROOT
+RUN chown -R www-data:www-data $ELGG_DATA_ROOT
+RUN chmod 770 -R $ELGG_DATA_ROOT
+>>>>>>> aee7e932270b565c55ae64445286e6ac68ddff1d
