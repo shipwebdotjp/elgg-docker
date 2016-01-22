@@ -105,3 +105,4 @@ web:
 * `ELGG_PASSWORD` The password for the admin user
 * `ELGG_PATH` The location Elgg is installed (Don't change this unless you modify run.sh and the installation)
 * `ELGG_SITE_ACCESS` The default site access
+* `PHP_DEFAULT_LOCALE` Set locale information for PHP

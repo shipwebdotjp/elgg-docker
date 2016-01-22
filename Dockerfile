@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y \
         libmcrypt-dev \
         libpng12-dev \
         netcat \
-        mysql-client
+        mysql-client \
+        locales \
+        libicu-dev
 
 # Elgg requirements
 RUN docker-php-ext-install pdo pdo_mysql mysql
@@ -20,10 +22,19 @@ WORKDIR /var/www/html/
 RUN a2enmod rewrite
 
 #Set time zone in server
-ENV TIMEZONE="America/Sao_Paulo"
+ENV TIMEZONE=${TIMEZONE:-"America/Sao_Paulo"}
 RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 #Set time zone in PHP
 RUN sed -i "s#{{timezone}}#$TIMEZONE#g" /usr/local/etc/php/php.ini
+
+#Set default locale in PHP
+#See http://php.net/setlocale
+ENV PHP_DEFAULT_LOCALE=${PHP_DEFAULT_LOCALE:-"pt_BR.UTF-8"}
+RUN docker-php-ext-install intl
+RUN sed -i -e "s/# $PHP_DEFAULT_LOCALE UTF-8/$PHP_DEFAULT_LOCALE UTF-8/" /etc/locale.gen && \
+    echo "LANG=\"$PHP_DEFAULT_LOCALE\"">/etc/default/locale && \
+    dpkg-reconfigure --frontend=noninteractive locales
+RUN sed -i "s#{{locale}}#$PHP_DEFAULT_LOCALE#g" /usr/local/etc/php/php.ini
 
 # set defaults or env vars for Elgg and MySQL
 # MySQL
@@ -53,7 +64,7 @@ ENV ELGG_PATH=${ELGG_PATH:-"/var/www/html/"}
 # 2 is ACCESS_PUBLIC
 ENV ELGG_SITE_ACCESS=${ELGG_SITE_ACCESS:-"2"}
 
-# If true, enable xdebug and vim
+# If true, enable xdebug and vim editor
 ENV DEBUG=${DEBUG:-"false"}
 
 # If true, should be informed of the file name that contains the dump to be restored in the database.
