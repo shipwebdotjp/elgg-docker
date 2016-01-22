@@ -62,7 +62,8 @@ $ docker-compose up -d
 3. Install the Elgg:
 ```console
 $ docker exec elgg_web_1 /elgg-docker/elgg-install.sh
-```
+```conflicts and then commit the result.
+
 * elgg_web_1 is the container name that was assigned to your web server container. This name may be different, if you created a folder with a different name "Elgg". To see the names of the containers running, run: ``` docker-compose ps ``` or ``` docker ps ``` 
 
 Visit your Elgg site: <http://localhost:8000/>
@@ -87,22 +88,25 @@ web:
     TIMEZONE: America/Sao_Paulo
 ```
 
-* `TIMEZONE` The timezone of the server and php 
-* `MYSQL_USER` The DB username to create
-* `MYSQL_PASS` The DB password to set on the created user
-* `ELGG_DB_HOST` The DB host Elgg will use
-* `ELGG_DB_USER` The DB user Elgg will use
-* `ELGG_DB_PASS` The DB password Elgg will use
-* `ELGG_DB_PREFIX` Elgg's DB prefix 
-* `ELGG_DB_NAME` The name of the DB Elgg will use
-* `ELGG_SITE_NAME` Elgg's site name
-* `ELGG_SITE_EMAIL` Elgg site email address 
-* `ELGG_WWW_ROOT` Elgg's www_root (Don't change this unless you modify run.sh and the installation)
-* `ELGG_DATA_ROOT` The data_root for Elgg (/media)
+* `TIMEZONE`          The timezone of the server and php 
+* `MYSQL_USER`        The DB username to create
+* `MYSQL_PASS`        The DB password to set on the created user
+* `ELGG_DB_HOST`      The DB host Elgg will use
+* `ELGG_DB_USER`      The DB user Elgg will use
+* `ELGG_DB_PASS`      The DB password Elgg will use
+* `ELGG_DB_PREFIX`    Elgg's DB prefix 
+* `ELGG_DB_NAME`      The name of the DB Elgg will use
+* `ELGG_SITE_NAME`    Elgg's site name
+* `ELGG_SITE_EMAIL`   Elgg site email address 
+* `ELGG_WWW_ROOT`     Elgg's www_root (Don't change this unless you modify run.sh and the installation)
+* `ELGG_DATA_ROOT`    The data_root for Elgg (/media)
 * `ELGG_DISPLAY_NAME` The display name for the admin user
 * `ELGG_EMAIL` The email address for the admin user (must be a well-formed, though not necessarily value, address)
 * `ELGG_USERNAME` The username of the admin user
 * `ELGG_PASSWORD` The password for the admin user
 * `ELGG_PATH` The location Elgg is installed (Don't change this unless you modify run.sh and the installation)
 * `ELGG_SITE_ACCESS` The default site access
+* `DEBUG`             If true, enable xdebug and vim editor
+* `MYSQL_DATABASE_INITIAL_DATA`   If true, should be informed of the file name that contains the dump to be restored in the database. 
+The file name must be the address for the directory /var/www/html/. Example: /var/www/html/deploy/dump-initial-data.sql
 * `PHP_DEFAULT_LOCALE` Set locale information for PHP
