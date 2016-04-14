@@ -75,9 +75,6 @@ mysql:
     MYSQL_ROOT_PASSWORD: root-pass
 ```
 
-.. note:: This is a reStructuredText directive - the Markdown
-   output should be just periods
-
 ```console
 $ docker-compose up -d
 ```
