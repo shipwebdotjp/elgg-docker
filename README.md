@@ -22,34 +22,17 @@ Before you start you need to have installed:
 1.. Get the Elgg:
 
 ```console
-$ mkdir Elgg && cd Elgg
-```
-
-  Create file composer.json
-```json
-{
-    "name": "your-account/elgg",
-    "type": "project",
-    "require": {
-        "elgg/elgg": "2.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^4.7"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-install-cmd": "\\Elgg\\Composer\\PostInstall::execute",
-        "post-update-cmd": "\\Elgg\\Composer\\PostUpdate::execute",
-        "test": "phpunit"
-  }
-}
+$ 
 ```
 
 ```console
+& mkdir elgg && cd elgg
 $ composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
+$ composer create-project elgg/starter-project:dev-master .
 $ composer.phar install
 ```
+
+See http://learn.elgg.org/en/stable/intro/install.html#upload-elgg
 
 2.. Create file docker-compose.yml at your project directory, for running multi-container applications with docker-compose:
 
@@ -74,6 +57,7 @@ mysql:
     MYSQL_DATABASE: elgg
     MYSQL_ROOT_PASSWORD: root-pass
 ```
+
 
 ```console
 $ docker-compose up -d
