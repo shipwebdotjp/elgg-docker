@@ -1,7 +1,6 @@
 # Supported tags and respective `Dockerfile` links
-
-  -	[`2.3` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.3/Dockerfile), [`lastest` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/Dockerfile)
-  -	[`2.0` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.0/Dockerfile)
+  - [`lastest` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/master/Dockerfile)
+  -	[`2.0`, `2.1`, `2.2`, `2.3` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/2.3/Dockerfile), 
   -	[`1.12` (*Dockerfile*)](https://github.com/keviocastro/elgg-docker/blob/1.12/Dockerfile)
 
 
