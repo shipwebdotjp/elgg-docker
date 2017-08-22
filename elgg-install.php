@@ -10,16 +10,17 @@ if (!$autoload_available) {
 
 $params = array(
 	// database parameters
+	'dbhost' => getenv('ELGG_DB_HOST'),
+	'dbprefix' => getenv('ELGG_DB_PREFIX'),
 	'dbuser' => getenv('ELGG_DB_USER'),
 	'dbpassword' => getenv('ELGG_DB_PASS'),
 	'dbname' => getenv('ELGG_DB_NAME'),
-	'dbhost' => getenv('ELGG_DB_HOST'),
-	'dbprefix' => getenv('ELGG_DB_PREFIX'),
 	// site settings
 	'sitename' => getenv('ELGG_SITE_NAME'),
 	'siteemail' => getenv('ELGG_SITE_EMAIL'),
 	'wwwroot' => getenv('ELGG_WWW_ROOT'),
 	'dataroot' => getenv('ELGG_DATA_ROOT'),
+	'siteaccess' => getenv('ELGG_SITE_ACCESS'),
 	// admin account
 	'displayname' => getenv('ELGG_DISPLAY_NAME'),
 	'email' => getenv('ELGG_EMAIL'),
