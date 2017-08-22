@@ -23,17 +23,13 @@ Before you start you need to have installed:
 1.. Get the Elgg:
 
 ```console
-$ 
+$ composer create-project elgg/starter-project:dev-master .
 ```
 
 ```console
 & mkdir elgg && cd elgg
-$ composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
-$ composer create-project elgg/starter-project:dev-master .
-$ composer.phar install
+$ composer create-project elgg/starter-project:dev-master 
 ```
-
-See http://learn.elgg.org/en/stable/intro/install.html#upload-elgg
 
 2.. Create file docker-compose.yml at your project directory, for running multi-container applications with docker-compose:
 
