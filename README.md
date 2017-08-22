@@ -16,6 +16,7 @@ For more information and related for Elgg, please visit www.elgg.org.
 # How to use this image
 
 Before you start you need to have installed:
+- git: https://git-scm.com/
 - composer: https://getcomposer.org/download/
 - docker: http://docs.docker.com/linux/step_one/ or https://docs.docker.com/installation/ubuntulinux/
 - docker-compose: https://docs.docker.com/compose/install/
@@ -23,12 +24,17 @@ Before you start you need to have installed:
 1.. Get the Elgg:
 
 ```console
-$ composer create-project elgg/starter-project:dev-master .
+& mkdir elgg && cd elgg 
 ```
 
 ```console
-& mkdir elgg && cd elgg
 $ composer create-project elgg/starter-project:dev-master 
+```
+
+or 
+
+```console
+$ git clone git@github.com:Elgg/Elgg.git && git checkout 2.3
 ```
 
 2.. Create file docker-compose.yml at your project directory, for running multi-container applications with docker-compose:
