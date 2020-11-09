@@ -1,0 +1,21 @@
+# Set default values for all following accounts.
+defaults
+auth on
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+tls_certcheck off
+aliases /etc/aliases
+logfile /var/log/msmtp.log
+
+# Local
+account postfix
+host mail
+port 25
+from yourmailaddress@example.com
+auth off
+tls off
+tls_starttls off
+
+# set a default account
+account default : postfix

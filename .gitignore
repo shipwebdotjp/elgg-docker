@@ -1,1 +1,7 @@
 elgg-docker.sublime-workspace
+msmtprc
+.env
+*.zip
+/elgg/data
+/elgg/html
+/elgg/mysql
