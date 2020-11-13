@@ -15,18 +15,24 @@ RUN apt-get update && apt-get install -y \
         msmtp \
         msmtp-mta \
         supervisor \
+        libmemcached-dev \
+        zlib1g-dev \
+   && pecl install memcached-3.1.5 \
+   && docker-php-ext-enable memcached \
    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-   && docker-php-ext-install gd pdo pdo_mysql mbstring \
+   && docker-php-ext-install gd pdo pdo_mysql mbstring opcache \
    && apt install -y busybox-static
 
 COPY ./php.ini /usr/local/etc/php/
 COPY ./elgg-install.sh /elgg/elgg-install.sh
+COPY ./elgg-setting.sh /elgg/elgg-setting.sh
 COPY ./elgg/src/elgg-${version}.zip /elgg/src/elgg-${version}.zip
 #RUN wget -q -nc -P /elgg/src/ https://elgg.org/download/elgg-${version}.zip
 
 WORKDIR /elgg/src
 
-RUN chmod +x /elgg/elgg-install.sh
+RUN chmod +x /elgg/elgg-install.sh \
+ && chmod +x /elgg/elgg-setting.sh
 
 #RUN unzip -q /elgg/src/elgg-${version}.zip \
 # && cp -rf elgg-${version}/* /var/www/html \

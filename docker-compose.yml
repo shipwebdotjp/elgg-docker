@@ -12,6 +12,7 @@ services:
     volumes:
       #- backend-store:/var/www/html
       #- backend-cache:/elgg/data
+      #- ./elgg/mod:/elgg/mod
       - ./elgg/html:/var/www/html
       - ./elgg/data:/elgg/data
     environment:
@@ -23,8 +24,8 @@ services:
   db:
     build: ./mysql
     volumes:
-      #- db-store:/var/lib/mysql
-      - ./elgg/mysql:/var/lib/mysql
+      - db-store:/var/lib/mysql
+      #- ./elgg/mysql:/var/lib/mysql
     env_file:
       - ./mysql/.env
 
@@ -32,3 +33,7 @@ services:
     image: juanluisbaptiste/postfix:latest
     env_file:
       - ./postfix/.env
+
+  memcached:
+    image: memcached:latest
+    container_name: memcached

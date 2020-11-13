@@ -73,19 +73,18 @@ Then, Check http://localhost:5000/
 
 **ATTENTION! Database Host is not localhost
 
-## What if it shows Fatal Error after install Elgg?
+## After Install Elgg
+You've seen Fatal Error after install Elgg? 
 It because chache directory has permission problem. 
 The files must be writable by httpd. 
 But cron job execute by root creates some files in chache directory. 
 So, You have to change owner these files. 
 
-You can do this command again
+You can do this command after install Elgg 
+This elgg-setting.sh also Enable Memcache. 
+
 ```
-docker-compose exec web /elgg/elgg-install.sh
-```
-or simply do like this
-```
-docker-compose exec web chown -R www-data:www-data "${ELGG_DATA_ROOT}"
+docker-compose exec web /elgg/elgg-setting.sh
 ```
 
 ## Performance setting
