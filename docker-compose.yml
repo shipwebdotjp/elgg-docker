@@ -1,8 +1,8 @@
 version: "3.8"
 #volumes:
-  #db-store:
-  #backend-store:
-  #backend-cache:
+#  db-store:
+#  backend-store:
+#  backend-cache:
 
 services:
   web:
@@ -24,8 +24,8 @@ services:
   db:
     build: ./mysql
     volumes:
-      - db-store:/var/lib/mysql
-      #- ./elgg/mysql:/var/lib/mysql
+      #- db-store:/var/lib/mysql
+      - ./elgg/mysql:/var/lib/mysql
     env_file:
       - ./mysql/.env
 
