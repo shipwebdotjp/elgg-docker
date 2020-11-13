@@ -84,9 +84,14 @@ docker-compose exec web /elgg/elgg-install.sh
 ```
 or simply do like this
 ```
-docker-compose exec web chown -R www-data:www-data
+docker-compose exec web chown -R www-data:www-data "${ELGG_DATA_ROOT}"
 ```
 
+## Performance setting
+```
+docker-compose exec web ln -s /elgg/data/caches/views_simplecache /var/www/html/cache
+```
+Then, turn on Use symbolic link to simple cache directory
 
 
 ## Author
